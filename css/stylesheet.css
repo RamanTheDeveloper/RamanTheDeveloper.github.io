@@ -297,35 +297,102 @@ a{
 
 
 /*CSS for skills section*/
-.skills-container{
-    width: auto;
-    height: auto;
+.skills-container {
+    width: 100%;
     padding: 0 10px;
     text-align: center;
+    box-sizing: border-box;
+    overflow-x: hidden; /* prevent horizontal scrolling */
 }
 
-.skills-container h1{
+.skills-container h1 {
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: underline;
     position: relative;
 }
 
-.skills-container h1 span{
+.skills-container h1 span {
     position: absolute;
     top: -110px;
 }
 
-.skillset{
-    width: auto;
-    height: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+/* Grid layout for skill cards */
+.skillset {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    justify-items: center;
+    align-items: stretch;
+    margin: 5% 0;
     font-size: 16px;
-    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+}
+
+/* Each card */
+.skillset > div {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1 / 1; /* keeps them square */
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.skillset i {
+    font-size: 30px;
+    color: black;
+}
+
+.skillset h2 {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.skillset p,
+.skillset h3,
+.skillset ul {
+    text-align: left;
+}
+
+.skillset ul {
+    padding: 0;
+}
+
+.skillset ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 5px 10px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .skillset {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-left: 3rem;
+    }
+
+    .skillset > div {
+        aspect-ratio: auto; /* allow flexibility on tablets */
+    }
+}
+
+@media (max-width: 500px) {
+    .skillset {
+        grid-template-columns: 1fr;
+    }
+
+    .skillset > div {
+        max-width: 100%;
+        aspect-ratio: auto;
+    }
 }
 
 .front-end{
@@ -479,6 +546,55 @@ a{
     margin: 0 5px 10px;
 }
 
+.typescript-logo{
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    margin-bottom: 0.25rem;
+}
+
+.vue-logo{
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    margin-bottom: 0.25rem;
+}
+
+.mongodb-logo{
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    margin-bottom: 0.25rem;
+}
+
+.azure-cloud-logo{
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    margin-bottom: 0.25rem;
+}
+
+.azure-devops-logo{
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    margin-bottom: 0.25rem;
+}
+
+.terraform-logo{
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    margin-bottom: 0.25rem;
+}
+
+.postman-logo{
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+    margin-bottom: 0.25rem;
+}
+
 /*CSS for progress bar in skills section*/
 .bar{
     background: #bbbfca;
@@ -538,12 +654,12 @@ a{
     }
 }
 
-.angular-bar{
+.vue-bar{
     width: 70%;
-    animation: angular-bar 2s;
+    animation: vue-bar 2s;
 }
 
-@keyframes angular-bar {
+@keyframes vue-bar {
     0%{
         width: 0;
     }
@@ -553,7 +669,7 @@ a{
 }
 
 .react-bar{
-    width: 70%;
+    width: 60%;
     animation: react-bar 2s;
 }
 
@@ -562,40 +678,12 @@ a{
         width: 0;
     }
     100%{
-        width: 70%;
-    }
-}
-
-.node-bar{
-    width: 60%;
-    animation: node-bar 2s;
-}
-
-@keyframes node-bar {
-    0%{
-        width: 0;
-    }
-    100%{
         width: 60%;
     }
 }
 
-.java-bar{
-    width: 95%;
-    animation: java-bar 2s;
-}
-
-@keyframes java-bar {
-    0%{
-        width: 0;
-    }
-    100%{
-        width: 95%;
-    }
-}
-
 .python-bar{
-    width: 90%;
+    width: 50%;
     animation: python-bar 2s;
 }
 
@@ -604,40 +692,12 @@ a{
         width: 0;
     }
     100%{
-        width: 90%;
-    }
-}
-
-.php-bar{
-    width: 75%;
-    animation: php-bar 2s;
-}
-
-@keyframes php-bar {
-    0%{
-        width: 0;
-    }
-    100%{
-        width: 75%;
-    }
-}
-
-.c-bar{
-    width: 70%;
-    animation: c-bar 2s;
-}
-
-@keyframes c-bar {
-    0%{
-        width: 0;
-    }
-    100%{
-        width: 70%;
+        width: 50%;
     }
 }
 
 .c-sharp-bar{
-    width: 50%;
+    width: 80%;
     animation: c-sharp-bar 2s;
 }
 
@@ -646,12 +706,12 @@ a{
         width: 0;
     }
     100%{
-        width: 50%;
+        width: 80%;
     }
 }
 
 .net-bar{
-    width: 50%;
+    width: 80%;
     animation: net-bar 2s;
 }
 
@@ -660,63 +720,7 @@ a{
         width: 0;
     }
     100%{
-        width: 50%;
-    }
-}
-
-.kotlin-bar{
-    width: 55%;
-    animation: kotlin-bar 2s;
-}
-
-@keyframes kotlin-bar {
-    0%{
-        width: 0;
-    }
-    100%{
-        width: 55%;
-    }
-}
-
-.obj-c-bar{
-    width: 40%;
-    animation: obj-c-bar 2s;
-}
-
-@keyframes obj-c-bar {
-    0%{
-        width: 0;
-    }
-    100%{
-        width: 40%;
-    }
-}
-
-.terminal-bar{
-    width: 80%;
-    animation: terminal-bar 2s;
-}
-
-@keyframes terminal-bar {
-    0%{
-        width: 0;
-    }
-    100%{
         width: 80%;
-    }
-}
-
-.ssh-bar{
-    width: 70%;
-    animation: ssh-bar 2s;
-}
-
-@keyframes ssh-bar {
-    0%{
-        width: 0;
-    }
-    100%{
-        width: 70%;
     }
 }
 
@@ -762,6 +766,61 @@ a{
     }
 }
 
+.azure-devops-bar{
+    width: 75%;
+    animation: azure-devops-bar 2s;
+}
+
+@keyframes azure-devops-bar {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 75%;
+    }
+}
+
+.azure-cloud-bar{
+    width: 75%;
+    animation: azure-cloud-bar 2s;
+}
+
+@keyframes azure-cloud-bar {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 75%;
+    }
+}
+
+.terraform-bar{
+    width: 50%;
+    animation: terraform-bar 2s;
+}
+
+@keyframes terraform-bar {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 50;
+    }
+}
+
+.postman-bar{
+    width: 50%;
+    animation: postman-bar 2s;
+}
+
+@keyframes postman-bar {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 50;
+    }
+}
 
 /*CSS for Projects section*/
 .projects-container{
